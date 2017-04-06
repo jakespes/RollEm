@@ -27,7 +27,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="hold1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jTextField1" alignment="0" pref="70" max="32767" attributes="0"/>
+                  <Component id="die1" alignment="0" pref="70" max="32767" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -37,24 +37,24 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField9" pref="70" max="32767" attributes="0"/>
+                          <Component id="die2" pref="70" max="32767" attributes="0"/>
                           <Component id="hold2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField5" pref="70" max="32767" attributes="0"/>
+                          <Component id="die3" pref="70" max="32767" attributes="0"/>
                           <Component id="hold3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField6" pref="70" max="32767" attributes="0"/>
+                          <Component id="die4" pref="70" max="32767" attributes="0"/>
                           <Component id="hold4" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField7" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="die5" min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="hold5" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -73,11 +73,11 @@
               <Component id="jLabel1" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jTextField9" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jTextField5" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jTextField6" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jTextField7" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="die1" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="die2" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="die3" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="die4" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="die5" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -104,7 +104,7 @@
         <Property name="text" type="java.lang.String" value="Roll &apos;em"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="die1">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
@@ -120,22 +120,22 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hold1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="die3">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="die4">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
+    <Component class="javax.swing.JTextField" name="die5">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField9">
+    <Component class="javax.swing.JTextField" name="die2">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
@@ -192,6 +192,9 @@
         <Property name="label" type="java.lang.String" value="Roll"/>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
