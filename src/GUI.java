@@ -13,11 +13,11 @@ import java.util.Random;
  */
 public class GUI extends javax.swing.JFrame {
 
-    private boolean hold1bool = false;
-    private boolean hold2bool = false;
-    private boolean hold3bool = false;
-    private boolean hold4bool = false;
-    private boolean hold5bool = false;
+    private boolean hold1bool;
+    private boolean hold2bool;
+    private boolean hold3bool;
+    private boolean hold4bool;
+    private boolean hold5bool;
     int count = 0;
 
     Random rand = new Random();
@@ -27,6 +27,11 @@ public class GUI extends javax.swing.JFrame {
      * Creates new form GUI
      */
     public GUI() {
+        this.hold5bool = false;
+        this.hold4bool = false;
+        this.hold3bool = false;
+        this.hold2bool = false;
+        this.hold1bool = false;
         initComponents();
         hold1.setEnabled(false);
         hold2.setEnabled(false);
@@ -221,103 +226,120 @@ public class GUI extends javax.swing.JFrame {
 
     private void hold1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hold1ActionPerformed
         // TODO add your handling code here:
-        hold1bool = true;
-        hold1.setBackground(Color.RED);
-        hold1.setText("Hold");
+
+        if (hold1bool == false) {
+            hold1bool = true;
+            hold1.setBackground(Color.RED);
+            hold1.setText("Hold");
+        } else if (hold1bool == true) {
+            hold1bool = false;
+            hold1.setBackground(Color.GREEN);
+            hold1.setText("Roll");
+        }
     }//GEN-LAST:event_hold1ActionPerformed
 
     private void hold2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hold2ActionPerformed
         // TODO add your handling code here:
-        hold2bool = true;
-        hold2.setBackground(Color.RED);
-        hold2.setText("Hold");
+        if (hold2bool == false) {
+            hold2bool = true;
+            hold2.setBackground(Color.RED);
+            hold2.setText("Hold");
+        } else if (hold2bool == true) {
+            hold2bool = false;
+            hold2.setBackground(Color.GREEN);
+            hold2.setText("Roll");
+        }
     }//GEN-LAST:event_hold2ActionPerformed
 
     private void hold3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hold3ActionPerformed
         // TODO add your handling code here:
-        hold3bool = true;
-        hold3.setBackground(Color.RED);
-        hold3.setText("Hold");
+        if (hold3bool == false) {
+            hold3bool = true;
+            hold3.setBackground(Color.RED);
+            hold3.setText("Hold");
+        } else if (hold3bool == true) {
+            hold3bool = false;
+            hold3.setBackground(Color.GREEN);
+            hold3.setText("Roll");
+        }
     }//GEN-LAST:event_hold3ActionPerformed
 
     private void hold4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hold4ActionPerformed
         // TODO add your handling code here:
-        hold4bool = true;
-        hold4.setBackground(Color.RED);
-        hold4.setText("Hold");
+        if (hold4bool == false) {
+            hold4bool = true;
+            hold4.setBackground(Color.RED);
+            hold4.setText("Hold");
+        } else if (hold4bool == true) {
+            hold4bool = false;
+            hold4.setBackground(Color.GREEN);
+            hold4.setText("Roll");
+        }
     }//GEN-LAST:event_hold4ActionPerformed
 
     private void hold5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hold5ActionPerformed
         // TODO add your handling code here:
-        hold5bool = true;
-        hold5.setBackground(Color.RED);
-        hold5.setText("Hold");
+        if (hold5bool == false) {
+            hold5bool = true;
+            hold5.setBackground(Color.RED);
+            hold5.setText("Hold");
+        } else if (hold5bool == true) {
+            hold5bool = false;
+            hold5.setBackground(Color.GREEN);
+            hold5.setText("Roll");
+        }
     }//GEN-LAST:event_hold5ActionPerformed
 
     private void rollbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollbuttonActionPerformed
         // TODO add your handling code here:
-        hold1.setEnabled(true);
-        hold2.setEnabled(true);
-        hold3.setEnabled(true);
-        hold4.setEnabled(true);
-        hold5.setEnabled(true);
+        if (count == 0) {
+            hold1.setEnabled(true);
+            hold2.setEnabled(true);
+            hold3.setEnabled(true);
+            hold4.setEnabled(true);
+            hold5.setEnabled(true);
+        }
         count++;
 
-        roll1 = rand.nextInt(6) + 1;
         if (hold1bool == false) {
+            roll1 = rand.nextInt(6) + 1;
             die1.setText("" + roll1 + "");
         }
-        roll2 = rand.nextInt(6) + 1;
-        if (hold1bool == false) {
+
+        if (hold2bool == false) {
+            roll2 = rand.nextInt(6) + 1;
             die2.setText("" + roll2 + "");
         }
-        roll3 = rand.nextInt(6) + 1;
-        if (hold1bool == false) {
+
+        if (hold3bool == false) {
+            roll3 = rand.nextInt(6) + 1;
             die3.setText("" + roll3 + "");
         }
-        roll4 = rand.nextInt(6) + 1;
-        if (hold1bool == false) {
+
+        if (hold4bool == false) {
+            roll4 = rand.nextInt(6) + 1;
             die4.setText("" + roll4 + "");
         }
-        roll5 = rand.nextInt(6) + 1;
-        if (hold1bool == false) {
+
+        if (hold5bool == false) {
+            roll5 = rand.nextInt(6) + 1;
             die5.setText("" + roll5 + "");
         }
 
         if (count == 4) {
             rollbutton.setEnabled(false);
         }
-        int sum = roll1+roll2+roll3+roll4+roll5;
+        int sum = roll1 + roll2 + roll3 + roll4 + roll5;
         score.setText("Your score is " + sum);
 
     }//GEN-LAST:event_rollbuttonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         // TODO add your handling code here:
-        count = 0;
-        hold1bool = false;
-        hold2bool = false;
-        hold3bool = false;
-        hold4bool = false;
-        hold5bool = false;
-        roll1=0;
-        roll2=0;
-        roll3=0;
-        roll4=0;
-        roll5=0;
-        die1.setText("");
-        die2.setText("");
-        die3.setText("");
-        die4.setText("");
-        die5.setText("");
-        rollbutton.setEnabled(true);
-        hold1.setEnabled(false);
-        hold2.setEnabled(false);
-        hold3.setEnabled(false);
-        hold4.setEnabled(false);
-        hold5.setEnabled(false);
-        
-        
+        if (evt.getSource() == resetButton) {
+            dispose();
+            new GUI().setVisible(true);
+        }
     }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
