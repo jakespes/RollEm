@@ -21,7 +21,7 @@ public class GUI extends javax.swing.JFrame {
     int count = 0;
 
     Random rand = new Random();
-    int roll;
+    int roll1, roll2, roll3, roll4, roll5;
 
     /**
      * Creates new form GUI
@@ -55,7 +55,9 @@ public class GUI extends javax.swing.JFrame {
         hold3 = new javax.swing.JToggleButton();
         hold4 = new javax.swing.JToggleButton();
         hold5 = new javax.swing.JToggleButton();
-        button1 = new java.awt.Button();
+        rollbutton = new java.awt.Button();
+        score = new javax.swing.JTextField();
+        resetButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +66,8 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setText("Roll 'em");
 
         die1.setEditable(false);
+        die1.setFont(new java.awt.Font("Gill Sans MT", 1, 24)); // NOI18N
+        die1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         hold1.setBackground(new java.awt.Color(0, 255, 0));
         hold1.setText("Roll");
@@ -74,12 +78,20 @@ public class GUI extends javax.swing.JFrame {
         });
 
         die3.setEditable(false);
+        die3.setFont(new java.awt.Font("Gill Sans MT", 1, 24)); // NOI18N
+        die3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         die4.setEditable(false);
+        die4.setFont(new java.awt.Font("Gill Sans MT", 1, 24)); // NOI18N
+        die4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         die5.setEditable(false);
+        die5.setFont(new java.awt.Font("Gill Sans MT", 1, 24)); // NOI18N
+        die5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         die2.setEditable(false);
+        die2.setFont(new java.awt.Font("Gill Sans MT", 1, 24)); // NOI18N
+        die2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         hold2.setBackground(new java.awt.Color(0, 255, 0));
         hold2.setText("Roll");
@@ -113,12 +125,23 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        button1.setFont(new java.awt.Font("Elephant", 1, 36)); // NOI18N
-        button1.setLabel("Roll");
-        button1.setName(""); // NOI18N
-        button1.addActionListener(new java.awt.event.ActionListener() {
+        rollbutton.setFont(new java.awt.Font("Elephant", 1, 36)); // NOI18N
+        rollbutton.setLabel("Roll");
+        rollbutton.setName(""); // NOI18N
+        rollbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                rollbuttonActionPerformed(evt);
+            }
+        });
+
+        score.setEditable(false);
+        score.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        score.setText("Your score is");
+
+        resetButton.setText("Reset");
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetButtonActionPerformed(evt);
             }
         });
 
@@ -127,36 +150,43 @@ public class GUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(hold1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(die1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(hold1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(die1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(die2, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                                    .addComponent(hold2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(die3, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                                    .addComponent(hold3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(die4, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                                    .addComponent(hold4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(die5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(hold5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(die2, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(hold2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(die3, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(hold3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(die4, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(hold4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(die5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hold5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(172, 172, 172)
+                        .addComponent(rollbutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(score, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(resetButton)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,8 +208,12 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(hold4)
                     .addComponent(hold5))
                 .addGap(40, 40, 40)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addComponent(rollbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(score, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resetButton))
+                .addGap(64, 64, 64))
         );
 
         pack();
@@ -220,7 +254,7 @@ public class GUI extends javax.swing.JFrame {
         hold5.setText("Hold");
     }//GEN-LAST:event_hold5ActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    private void rollbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollbuttonActionPerformed
         // TODO add your handling code here:
         hold1.setEnabled(true);
         hold2.setEnabled(true);
@@ -228,32 +262,63 @@ public class GUI extends javax.swing.JFrame {
         hold4.setEnabled(true);
         hold5.setEnabled(true);
         count++;
-        roll = rand.nextInt(6) + 1;
-        if (hold1bool != true) {
-            die1.setText("" + roll + "");
+
+        roll1 = rand.nextInt(6) + 1;
+        if (hold1bool == false) {
+            die1.setText("" + roll1 + "");
         }
-        roll = rand.nextInt(6) + 1;
-        if (hold1bool != true) {
-            die2.setText("" + roll + "");
+        roll2 = rand.nextInt(6) + 1;
+        if (hold1bool == false) {
+            die2.setText("" + roll2 + "");
         }
-        roll = rand.nextInt(6) + 1;
-        if (hold1bool != true) {
-            die3.setText("" + roll + "");
+        roll3 = rand.nextInt(6) + 1;
+        if (hold1bool == false) {
+            die3.setText("" + roll3 + "");
         }
-        roll = rand.nextInt(6) + 1;
-        if (hold1bool != true) {
-            die4.setText("" + roll + "");
+        roll4 = rand.nextInt(6) + 1;
+        if (hold1bool == false) {
+            die4.setText("" + roll4 + "");
         }
-        roll = rand.nextInt(6) + 1;
-        if (hold1bool != true) {
-            die5.setText("" + roll + "");
-        }
-        if (count == 4){
-            button1.setEnabled(false);
+        roll5 = rand.nextInt(6) + 1;
+        if (hold1bool == false) {
+            die5.setText("" + roll5 + "");
         }
 
+        if (count == 4) {
+            rollbutton.setEnabled(false);
+        }
+        int sum = roll1+roll2+roll3+roll4+roll5;
+        score.setText("Your score is " + sum);
 
-    }//GEN-LAST:event_button1ActionPerformed
+    }//GEN-LAST:event_rollbuttonActionPerformed
+
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        // TODO add your handling code here:
+        count = 0;
+        hold1bool = false;
+        hold2bool = false;
+        hold3bool = false;
+        hold4bool = false;
+        hold5bool = false;
+        roll1=0;
+        roll2=0;
+        roll3=0;
+        roll4=0;
+        roll5=0;
+        die1.setText("");
+        die2.setText("");
+        die3.setText("");
+        die4.setText("");
+        die5.setText("");
+        rollbutton.setEnabled(true);
+        hold1.setEnabled(false);
+        hold2.setEnabled(false);
+        hold3.setEnabled(false);
+        hold4.setEnabled(false);
+        hold5.setEnabled(false);
+        
+        
+    }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,7 +357,6 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
     private javax.swing.JTextField die1;
     private javax.swing.JTextField die2;
     private javax.swing.JTextField die3;
@@ -304,5 +368,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton hold4;
     private javax.swing.JToggleButton hold5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton resetButton;
+    private java.awt.Button rollbutton;
+    private javax.swing.JTextField score;
     // End of variables declaration//GEN-END:variables
 }
