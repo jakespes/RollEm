@@ -326,7 +326,7 @@ public class GUI extends javax.swing.JFrame {
             die5.setText("" + roll5 + "");
         }
 
-        if (count == 4) {
+        if (count == 3) {
             rollbutton.setEnabled(false);
         }
         int sum = roll1 + roll2 + roll3 + roll4 + roll5;
